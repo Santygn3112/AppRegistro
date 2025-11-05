@@ -14,11 +14,12 @@
         android:id="@+id/tv_resumen_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/titulo_resumen"
-        android:textSize="28sp"
-        android:textStyle="bold"
         android:textColor="?attr/colorOnBackground"
-        android:layout_marginBottom="32dp"/>
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_resumen_label"
@@ -41,17 +42,18 @@
         android:id="@+id/btn_volver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_volver_formulario"
         android:layout_marginTop="32dp"
         android:backgroundTint="?attr/colorPrimary"
+        android:text="@string/btn_volver_formulario"
         android:textColor="?attr/colorOnPrimary" />
 
     <Button
         android:id="@+id/btn_modo_claro_oscuro_resumen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_modo_claro_oscuro_resumen"
         android:layout_marginTop="16dp"
         android:backgroundTint="?attr/colorSecondary"
+        android:text="@string/btn_modo_claro_oscuro_resumen"
         android:textColor="?attr/colorOnSecondary" />
+
 </LinearLayout>

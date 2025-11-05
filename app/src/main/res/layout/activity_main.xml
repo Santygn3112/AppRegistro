@@ -95,10 +95,11 @@
         android:id="@+id/label_sexo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         android:text="@string/label_sexo"
         android:textColor="?attr/colorOnSurfaceVariant"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_confirmar_password" />
 
@@ -106,17 +107,20 @@
         android:id="@+id/rg_sexo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        app:layout_constraintStart_toEndOf="@id/label_sexo"
-        app:layout_constraintTop_toTopOf="@id/label_sexo"
-        app:layout_constraintBottom_toBottomOf="@id/label_sexo"
-        android:layout_marginStart="16dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_sexo">
+
         <RadioButton
             android:id="@+id/rb_masculino"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/radio_masculino"
             android:textColor="?attr/colorOnBackground" />
+
         <RadioButton
             android:id="@+id/rb_femenino"
             android:layout_width="wrap_content"
@@ -133,9 +137,9 @@
         android:layout_marginTop="16dp"
         android:text="@string/check_terminos"
         android:textColor="?attr/colorOnBackground"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/label_sexo" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rg_sexo" />
 
     <Button
         android:id="@+id/btn_registrarse"

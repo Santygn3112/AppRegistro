@@ -10,19 +10,17 @@
     <string name="radio_masculino">Masculino</string>
     <string name="radio_femenino">Femenino</string>
     <string name="check_terminos">Acepto los términos y condiciones</string>
-    <string name="btn_registrarse">Registrarse</string>
-    <string name="btn_modo_claro_oscuro">Modo claro/oscuro</string>
-    <string name="copyright">© 2025 MiApp de Registro</string>
-
-    <string name="error_campos_vacios">Todos los campos de texto son obligatorios</string>
-    <string name="error_email_formato">El correo electrónico debe tener un formato válido (contener @)</string>
-    <string name="error_password_corta">La contraseña debe tener al menos 7 caracteres</string>
-    <string name="error_password_no_coincide">Las contraseñas no coinciden</string>
-    <string name="error_sexo_requerido">Debe seleccionar un sexo</string>
-    <string name="error_terminos_requeridos">Debe aceptar los términos y condiciones</string>
-
-    <string name="titulo_resumen">¡Registro Exitoso!</string>
-    <string name="label_resumen_datos">Resumen de datos:</string>
-    <string name="btn_volver_formulario">Volver al formulario</string>
-    <string name="btn_modo_claro_oscuro_resumen">Modo claro/oscuro</string>
+    <string name="btn_registrarse" translatable="false">Registrarse</string>
+    <string name="btn_modo_claro_oscuro" translatable="false">Modo claro/oscuro</string>
+    <string name="copyright" translatable="false">© 2025 MiApp de Registro</string>
+    <string name="error_campos_vacios" translatable="false">Todos los campos de texto son obligatorios</string>
+    <string name="error_email_formato" translatable="false">El correo electrónico debe tener un formato válido (contener @)</string>
+    <string name="error_password_corta" translatable="false">La contraseña debe tener al menos 7 caracteres</string>
+    <string name="error_password_no_coincide" translatable="false">Las contraseñas no coinciden</string>
+    <string name="error_sexo_requerido" translatable="false">Debe seleccionar un sexo</string>
+    <string name="error_terminos_requeridos" translatable="false">Debe aceptar los términos y condiciones</string>
+    <string name="titulo_resumen" translatable="false">¡Registro Exitoso!</string>
+    <string name="label_resumen_datos" translatable="false">Resumen de datos:</string>
+    <string name="btn_volver_formulario" translatable="false">Volver al formulario</string>
+    <string name="btn_modo_claro_oscuro_resumen" translatable="false">Modo claro/oscuro</string>
 </resources>

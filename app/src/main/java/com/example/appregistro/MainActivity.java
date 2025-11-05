@@ -1,9 +1,9 @@
-package com.example.appregistro; // Asegúrate de que este es tu paquete
+package com.example.appregistro;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate; // 👈 Importar
+import androidx.appcompat.app.AppCompatDelegate;
 import android.content.Intent;
-import android.content.res.Configuration; // 👈 Importar
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,13 +16,10 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Vistas de UI (Solo las que necesitamos para la lógica)
     TextInputEditText etUsuario, etEmail, etPassword, etConfirmarPassword;
     RadioGroup rgSexo;
     CheckBox cbTerminos;
     Button btnRegistrarse, btnModo;
-
-    // Constantes para pasar datos
     public static final String KEY_USUARIO = "usuario";
     public static final String KEY_EMAIL = "email";
     public static final String KEY_SEXO = "sexo";
@@ -32,38 +29,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 1. Enlazar las vistas que usaremos
+        // Enlazar las vistas
         enlazarVistas();
 
-        // 2. Configurar el botón de registro
+        // Configurar el botón de registro
         btnRegistrarse.setOnClickListener(v -> procesarRegistro());
 
-        // 3. Configurar el botón de modo claro/oscuro
+        // Configurar el botón de modo claro/oscuro
         btnModo.setOnClickListener(v -> toggleTheme());
     }
 
-    /**
-     * Esta función cambia el modo de la app entre claro y oscuro.
-     * El sistema (AppCompatDelegate) guarda la elección y recrea
-     * la actividad automáticamente con el tema correcto.
-     */
     private void toggleTheme() {
         // Obtenemos el modo actual del sistema
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
         // Invertimos el modo
         if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
-            // Si es de noche, cambiamos a modo de día
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         } else {
-            // Si es de día, cambiamos a modo de noche
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
     }
 
-    /**
-     * Enlaza las variables de Java con los IDs del layout XML.
-     */
     private void enlazarVistas() {
         etUsuario = findViewById(R.id.et_usuario);
         etEmail = findViewById(R.id.et_email);
@@ -75,20 +62,15 @@ public class MainActivity extends AppCompatActivity {
         btnModo = findViewById(R.id.btn_modo_claro_oscuro);
     }
 
-    /**
-     * Valida el formulario y, si es correcto, inicia ResumenActivity.
-     */
     private void procesarRegistro() {
         if (validarFormulario()) {
             String usuario = Objects.requireNonNull(etUsuario.getText()).toString();
             String email = Objects.requireNonNull(etEmail.getText()).toString();
 
             int selectedSexoId = rgSexo.getCheckedRadioButtonId();
-            // Necesitamos los IDs de los RadioButton para obtener el texto
             RadioButton rbSexoSeleccionado = findViewById(selectedSexoId);
             String sexo = rbSexoSeleccionado.getText().toString();
 
-            // Preparamos el Intent para enviar los datos
             Intent intent = new Intent(MainActivity.this, ResumenActivity.class);
             intent.putExtra(KEY_USUARIO, usuario);
             intent.putExtra(KEY_EMAIL, email);
@@ -109,49 +91,45 @@ public class MainActivity extends AppCompatActivity {
         String password = Objects.requireNonNull(etPassword.getText()).toString();
         String confirmarPassword = Objects.requireNonNull(etConfirmarPassword.getText()).toString();
 
-        // a. Campos de texto rellenos
+        // Campos de texto rellenos
         if (usuario.isEmpty() || email.isEmpty() || password.isEmpty() || confirmarPassword.isEmpty()) {
             mostrarToast(getString(R.string.error_campos_vacios));
             return false;
         }
 
-        // b. Formato de correo (simple)
+        // Formato de correo
         if (!email.contains("@") || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             mostrarToast(getString(R.string.error_email_formato));
             return false;
         }
 
-        // c. Longitud de contraseña
+        // Longitud de contraseña
         if (password.length() < 7) {
             mostrarToast(getString(R.string.error_password_corta));
             return false;
         }
 
-        // d. Coincidencia de contraseñas
+        // Coincidencia de contraseñas
         if (!password.equals(confirmarPassword)) {
             mostrarToast(getString(R.string.error_password_no_coincide));
             return false;
         }
 
-        // e. Sexo seleccionado
+        // Sexo seleccionado
         if (rgSexo.getCheckedRadioButtonId() == -1) {
             mostrarToast(getString(R.string.error_sexo_requerido));
             return false;
         }
 
-        // f. Términos aceptados
+        // Términos aceptados
         if (!cbTerminos.isChecked()) {
             mostrarToast(getString(R.string.error_terminos_requeridos));
             return false;
         }
 
-        return true; // ¡Todo correcto!
+        return true;
     }
 
-    /**
-     * Muestra un mensaje Toast en la pantalla.
-     * @param mensaje El texto que se mostrará.
-     */
     private void mostrarToast(String mensaje) {
         Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show();
     }
